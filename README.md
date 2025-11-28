@@ -60,6 +60,23 @@ Unlike simple CRUD applications, Sentinel focuses on **Data Integrity** and **Tr
 ### 5. Audit Trail
 * **History Log:** A read-only record of every transaction (Who, What, When, Why).
 
+## 📂 Project Structure (MVC)
+
+```text
+src/
+├── main/
+│   ├── java/
+│   │   ├── com.sentinel/
+│   │   │   ├── model/          # POJOs (Product, User, Supplier)
+│   │   │   ├── dao/            # Database Access Logic (SQL)
+│   │   │   ├── controller/     # UI Logic & Event Handling
+│   │   │   ├── util/           # Helpers (DBConnection, PasswordHash)
+│   │   │   └── Main.java       # App Entry Point
+│   └── resources/
+│       ├── fxml/               # UI Layout Files
+│       ├── css/                # Stylesheets
+│       └── images/             # Icons & Assets
+
 ## 💾 Database Schema (ER Diagram)
 
 The system relies on a relational MySQL database designed in 3NF.

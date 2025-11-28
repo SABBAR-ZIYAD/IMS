@@ -77,6 +77,7 @@ src/
 │       ├── css/                # Stylesheets
 │       └── images/             # Icons & Assets
 
+````
 ## 💾 Database Schema (ER Diagram)
 
 The system relies on a relational MySQL database designed in 3NF.

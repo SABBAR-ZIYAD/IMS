@@ -1,5 +1,5 @@
 # IMS
-# 🛡️ Sentinel Inventory Management System (2025)
+# 🛡️ Inventory Management System (2025)
 
 > **Status:** Active Development
 >
@@ -47,10 +47,12 @@ Unlike simple CRUD applications, Sentinel focuses on **Data Integrity** and **Tr
   * **Image Handling:** Store file path in DB, render image in UI.
 
 ### 3. Inventory Control (The Logic)
-* **Transactional Updates:** Users cannot manually type a new stock number.
-  * **Stock In:** Increases inventory.
-  * **Stock Out:** Decreases inventory.
-* **Calculated State:** `Current Quantity = Initial + Total In - Total Out`.
+* **Transactional Integrity:** Stock levels (`stock_qty`) are never manually editable.
+  * **Stock In:** Increases inventory via transaction logging.
+  * **Stock Out:** Decreases inventory via transaction logging.
+* **Automated Consistency:** The `stock_qty` in the `PRODUCTS` table is treated as a **cached value**.
+  * It is automatically updated via **Database Triggers** (or Service-Layer Transactional Logic) whenever a `TRANSACTION` record is inserted.
+  * This ensures that `Stock Qty == Sum(In) - Sum(Out)` at all times without requiring expensive recalculations for every read operation.
 * **Low Stock Alerts:** Visual warning when `Quantity < Reorder Point`.
 
 ### 4. Dashboard & Analytics

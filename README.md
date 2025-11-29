@@ -1,5 +1,5 @@
 # IMS
-# 🛡️ Inventory Management System (2025)
+# 🛡️ Inventory Management System 
 
 > **Status:** Active Development
 >

@@ -107,7 +107,7 @@ erDiagram
         string name
         decimal cost_price
         decimal sell_price
-        int stock_qty
+        int stock_qty "Derived (Trigger Protected)"
         string image_path
         int category_id FK
         int supplier_id FK
@@ -117,6 +117,7 @@ erDiagram
         int product_id FK
         int user_id FK
         enum type "IN, OUT"
+        enum reason "SALE, RESTOCK, DAMAGE, ADJUSTMENT"
         int qty
         datetime timestamp
     }

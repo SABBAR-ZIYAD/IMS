@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ims.controller.LoginController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #2c3e50;">
+            <children>
+                <Label text="IMS" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="48.0" />
+                    </font>
+                </Label>
+                <Label text="Inventory Management" textFill="#bdc3c7">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" layoutX="250.0" prefHeight="400.0" prefWidth="350.0" spacing="15.0">
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+            <children>
+                <Label text="Welcome Back" textFill="#2c3e50">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Please login to continue." textFill="#7f8c8d" />
+
+                <Label text="Username" />
+                <TextField fx:id="usernameField" promptText="Enter username" />
+
+                <Label text="Password" />
+                <PasswordField fx:id="passwordField" promptText="Enter password" />
+
+                <Label fx:id="errorLabel" textFill="RED" visible="false" />
+
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-cursor: hand;" text="Login">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

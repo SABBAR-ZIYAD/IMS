@@ -16,7 +16,15 @@ public class DBConnection {
             throw new SQLException("MySQL Driver not found in library path", e);
         }
     }
+    public static void main() {
+        try (Connection conn = getConnection()) {
+            if (conn != null) {
+                System.out.println("✅ SUCCESS: Connected to the DATA BASE");
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ FAILED: Could not connect to IMS_DB.");
+            e.printStackTrace();
+        }
 
-
-
+    }
 }

@@ -51,7 +51,7 @@ public class LoginController {
             System.out.println("✅ LOGIN SUCCESS! User: " + user.getUsername());
             errorLabel.setVisible(false);
 
-            // --- NEW: TRANSITION TO DASHBOARD ---
+            // --- TRANSITION TO DASHBOARD ---
             try {
                 // Load the Dashboard FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/DashboardView.fxml"));
@@ -61,11 +61,19 @@ public class LoginController {
                 DashboardController dashboardController = loader.getController();
                 dashboardController.setUsername(user.getUsername());
 
-                // Get the current window (Stage) and set the new Scene
+                // Get the current window (Stage)
                 Stage stage = (Stage) loginButton.getScene().getWindow();
+
+                // 🟢 FIX START: Enable Resizing & Full Screen
+                stage.setResizable(true); // Allow the user to stretch the window
+
                 stage.setScene(new Scene(root));
                 stage.setTitle("IMS - Admin Dashboard");
-                stage.centerOnScreen();
+
+                stage.setMaximized(true); // Force Full Screen
+                stage.setMinWidth(1000);  // Prevent it from getting too small
+                stage.setMinHeight(700);
+                // 🟢 FIX END
 
             } catch (IOException e) {
                 e.printStackTrace();

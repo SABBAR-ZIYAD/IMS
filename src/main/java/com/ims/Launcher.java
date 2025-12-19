@@ -13,10 +13,8 @@ public class Launcher {
         URL urlFolder = Launcher.class.getResource("/fxml/LoginView.fxml");
         System.out.println("Checking /fxml/LoginView.fxml: " + (urlFolder != null ? "FOUND" : "NOT FOUND"));
 
-        // 3. Print where Java is actually running from
         System.out.println("Running from: " + Launcher.class.getProtectionDomain().getCodeSource().getLocation());
-
-
+        
         if (urlFolder != null) {
             System.out.println(" FILE FOUND! Launching App...");
             Main.main(args);

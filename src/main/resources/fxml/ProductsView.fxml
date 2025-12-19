@@ -10,36 +10,33 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="700.0" spacing="15.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ims.controller.ProductsController">
+<VBox prefHeight="600.0" prefWidth="700.0" spacing="15.0" styleClass="main-content" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ims.controller.ProductsController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
         <HBox alignment="CENTER_LEFT" spacing="20.0">
             <children>
-                <Label text="Product Inventory" textFill="#2c3e50">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
+                <Label styleClass="dashboard-title" text="Product Inventory">
                 </Label>
                 <HBox HBox.hgrow="ALWAYS" />
 
-                <Button mnemonicParsing="false" onAction="#handleViewArchived" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" text="📂 View Archived" />
+                <Button mnemonicParsing="false" onAction="#handleViewArchived" styleClass="secondary-button" text="📂 View Archived" />
 
-                <Button mnemonicParsing="false" onAction="#handleRestockBtn" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="📥 Restock" />
-                <Button mnemonicParsing="false" onAction="#handleSaleBtn" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="📤 Sell" />
+                <Button mnemonicParsing="false" onAction="#handleRestockBtn" styleClass="action-button" text="📥 Restock" />
+                <Button mnemonicParsing="false" onAction="#handleSaleBtn" styleClass="danger-button" text="📤 Sell" />
 
-                <Button mnemonicParsing="false" onAction="#handleEditBtn" style="-fx-background-color: #f39c12; -fx-text-fill: white;" text="✎ Edit" />
+                <Button mnemonicParsing="false" onAction="#handleEditBtn" styleClass="warning-button" text="✎ Edit" />
 
-                <Button mnemonicParsing="false" onAction="#handleDeleteBtn" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="🗑 Archive" />
+                <Button mnemonicParsing="false" onAction="#handleDeleteBtn" styleClass="danger-button" text="🗑 Archive" />
 
-                <Button mnemonicParsing="false" onAction="#handleAddProductBtn" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="+ Add" />
+                <Button mnemonicParsing="false" onAction="#handleAddProductBtn" styleClass="primary-button" text="+ Add" />
             </children>
         </HBox>
         <HBox alignment="CENTER_LEFT" spacing="10.0">
             <children>
-                <TextField fx:id="searchField" promptText="Search by Name or SKU..." HBox.hgrow="ALWAYS" />
-                <Button mnemonicParsing="false" text="Search" />
+                <TextField fx:id="searchField" promptText="Search by Name or SKU..." styleClass="text-field" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" styleClass="secondary-button" text="Search" />
             </children>
         </HBox>
 

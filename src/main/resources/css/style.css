@@ -1,0 +1,256 @@
+/* Global Variables (simulated for JavaFX, using actual values) */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: #F4F7FE;
+    -fx-padding: 20 10 20 10;
+}
+
+/* Sidebar Title */
+.sidebar-title {
+    -fx-text-fill: #333333;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 0 0 30 0;
+}
+
+/* Navigation Buttons */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7d8da1;
+    /* Muted text for inactive */
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-padding: 12 20 12 20;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #e0e9f8;
+    /* Slight darkened hover on light bg */
+    -fx-text-fill: #00C292;
+}
+
+.sidebar-button:focused {
+    -fx-background-color: #ffffff;
+    /* Active state or focus */
+    -fx-text-fill: #00C292;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Logout Button Special Case */
+.logout-button {
+    -fx-background-color: #ffeaea;
+    -fx-text-fill: #c0392b;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+}
+
+.logout-button:hover {
+    -fx-background-color: #ffcccc;
+}
+
+/* Main Content Area */
+.main-content {
+    -fx-background-color: #FFFFFF;
+}
+
+/* Headers */
+.header-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b3674;
+}
+
+/* Subheaders */
+.subheader-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #a3aed0;
+}
+
+/* Cards (Widgets) */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(112, 144, 176, 0.15), 15, 0, 0, 0);
+    -fx-padding: 20;
+}
+
+.primary-button {
+    -fx-background-color: #00C292;
+    -fx-text-fill: white;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+/* Dashboard specific */
+.dashboard-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b3674;
+    -fx-padding: 0 0 20 0;
+}
+
+
+/* Stats Widgets */
+/* Stats Widgets */
+.stats-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 10, 0, 0, 2);
+    /* Subtle shadow, pure white look */
+    -fx-padding: 25;
+    -fx-min-height: 120;
+    -fx-alignment: center-left;
+    /* Removed border properties for clean pure white look */
+}
+
+/* Specific Card Accents - Transparent for pure white look */
+.card-info {
+    -fx-border-color: transparent;
+}
+
+.card-danger {
+    -fx-border-color: transparent;
+}
+
+.card-warning {
+    -fx-border-color: transparent;
+}
+
+.card-success {
+    -fx-border-color: transparent;
+}
+
+.stats-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: #90A4AE;
+    /* Cooler gray for labels */
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 0;
+}
+
+.stats-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    /* Darker Gray for contrast */
+}
+
+/* ... Buttons ... */
+
+/* ... Charts ... */
+
+/* JavaFX Chart overrides - Muted Palette */
+.chart-pie-label-line {
+    -fx-stroke: #90A4AE;
+}
+
+.chart-pie-label {
+    -fx-fill: #90A4AE;
+}
+
+.axis-label {
+    -fx-text-fill: #90A4AE;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+/* Donut/Pie Colors: Teal, Blue, Coral, Purple */
+.default-color0.chart-pie {
+    -fx-pie-color: #4DB6AC;
+}
+
+/* Teal */
+.default-color1.chart-pie {
+    -fx-pie-color: #64B5F6;
+}
+
+/* Blue */
+.default-color2.chart-pie {
+    -fx-pie-color: #E57373;
+}
+
+/* Coral */
+.default-color3.chart-pie {
+    -fx-pie-color: #BA68C8;
+}
+
+/* Purple */
+.default-color4.chart-pie {
+    -fx-pie-color: #FFF176;
+}
+
+/* Yellow */
+
+/* Bar Chart Colors */
+.default-color0.chart-bar {
+    -fx-bar-fill: #4DB6AC;
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill: #64B5F6;
+}
+
+.default-color2.chart-bar {
+    -fx-bar-fill: #E57373;
+}
+
+.default-color3.chart-bar {
+    -fx-bar-fill: #BA68C8;
+}
+
+/* Area Chart Styling (Gradient Fill) - Replacing Line Chart styles */
+.default-color0.chart-series-area-fill {
+    -fx-fill: linear-gradient(to bottom, rgba(77, 182, 172, 0.5), rgba(255, 255, 255, 0));
+}
+
+.default-color0.chart-series-area-line {
+    -fx-stroke: #4DB6AC;
+    -fx-stroke-width: 2px;
+}
+
+.chart-line-symbol {
+    -fx-background-color: #4DB6AC, white;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill: transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #eceff1;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #eceff1;
+}
+
+
+
+/* Login Screen */
+.login-sidebar {
+    -fx-background-color: #00C292;
+}
+
+.login-title {
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}
+
+.login-subtitle {
+    -fx-text-fill: #e0f2f1;
+    /* Light green/white */
+    -fx-font-size: 14px;
+}

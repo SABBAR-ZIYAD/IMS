@@ -5,6 +5,8 @@ import com.ims.util.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CategoryDAO {
 
@@ -56,5 +58,26 @@ public class CategoryDAO {
             System.err.println("❌ Cannot delete Category: It might be used by a Product.");
             // Ideally, show an alert to the user here
         }
+    }
+
+    // 5. CHART DATA: Get Product Counts per Category
+    public static Map<String, Integer> getCategoryProductCounts() {
+        Map<String, Integer> data = new HashMap<>();
+        // This query links Categories to Products and counts them
+        String sql = "SELECT c.name, COUNT(p.product_id) as count " +
+                "FROM categories c " +
+                "LEFT JOIN products p ON c.category_id = p.category_id " +
+                "WHERE p.status = 'ACTIVE' " +
+                "GROUP BY c.name";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                data.put(rs.getString("name"), rs.getInt("count"));
+            }
+        } catch (SQLException e) { e.printStackTrace(); }
+        return data;
     }
 }

@@ -8,6 +8,9 @@ import com.ims.model.Transaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class TransactionDAO {
 
@@ -17,7 +20,6 @@ public class TransactionDAO {
         String updateStockSql = "UPDATE products SET stock_qty = stock_qty + ? WHERE product_id = ?";
 
         Connection conn = null;
-
         try {
             conn = DBConnection.getConnection();
 
@@ -158,4 +160,49 @@ public class TransactionDAO {
         return list;
     }
 
+    // 4. CHART DATA: Get Top 5 Selling Products
+    public static Map<String, Integer> getTopSellingProducts() {
+        Map<String, Integer> data = new HashMap<>();
+        // Sum qty for 'OUT' transactions, ordered by highest sum
+        String sql = "SELECT p.name, SUM(t.qty) as total_sold " +
+                "FROM transactions t " +
+                "JOIN products p ON t.product_id = p.product_id " +
+                "WHERE t.type = 'OUT' " +
+                "GROUP BY p.name " +
+                "ORDER BY total_sold DESC " +
+                "LIMIT 5";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                data.put(rs.getString("name"), rs.getInt("total_sold"));
+            }
+        } catch (SQLException e) { e.printStackTrace(); }
+        return data;
+    }
+
+    // 5. CHART DATA: Get Transaction Activity (Last 7 Days)
+    public static Map<String, Integer> getTransactionTrend() {
+        // TreeMap automatically sorts keys (Dates)
+        Map<String, Integer> data = new TreeMap<>();
+
+        // DATE(timestamp) removes the time part, so we group by Day
+        String sql = "SELECT DATE(timestamp) as date, COUNT(*) as count " +
+                "FROM transactions " +
+                "WHERE timestamp >= DATE(NOW()) - INTERVAL 7 DAY " +
+                "GROUP BY DATE(timestamp) " +
+                "ORDER BY date ASC";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                data.put(rs.getString("date"), rs.getInt("count"));
+            }
+        } catch (SQLException e) { e.printStackTrace(); }
+        return data;
+    }
 }

@@ -7,63 +7,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ims.controller.DashboardController">
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main-content" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ims.controller.DashboardController">
 
     <left>
-        <VBox prefHeight="600.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+        <VBox prefHeight="600.0" prefWidth="250.0" spacing="10.0" styleClass="sidebar" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" prefHeight="80.0" prefWidth="220.0" text="IMS Admin" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="250.0" styleClass="sidebar-title" text="IMS">
                 </Label>
 
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleDashboardBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-cursor: hand;" text="📊  Dashboard">
-                    <padding>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                    </padding>
-                    <font>
-                        <Font size="14.0" />
-                    </font>
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleDashboardBtn" styleClass="sidebar-button" text="📊  Dashboard">
                 </Button>
 
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleProductsBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-cursor: hand;" text="📦  Products">
-                    <padding>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                    </padding>
-                    <font>
-                        <Font size="14.0" />
-                    </font>
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleProductsBtn" styleClass="sidebar-button" text="📦  Products">
                 </Button>
 
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleCategoriesBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-cursor: hand;" text="🏷  Categories">
-                    <padding> <Insets bottom="15.0" left="30.0" top="15.0" /> </padding>
-                    <font> <Font size="14.0" /> </font>
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleCategoriesBtn" styleClass="sidebar-button" text="🏷  Categories">
                 </Button>
 
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleSuppliersBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-cursor: hand;" text="🚚  Suppliers">
-                    <padding>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                    </padding>
-                    <font>
-                        <Font size="14.0" />
-                    </font>
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleSuppliersBtn" styleClass="sidebar-button" text="🚚  Suppliers">
                 </Button>
 
                 <VBox VBox.vgrow="ALWAYS" />
 
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-cursor: hand;" text="Logout">
-                    <padding>
-                        <Insets bottom="15.0" top="15.0" />
-                    </padding>
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleLogout" styleClass="sidebar-button, logout-button" text="Logout">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
                 </Button>
             </children>
         </VBox>
     </left>
 
     <center>
+        <!-- Content will be injected here by controller -->
     </center>
 </BorderPane>
